@@ -1,0 +1,21 @@
+{
+	"usbreceiver":{
+		"vid":"0x147a",
+		"pid":"0xe019"
+	},
+	"codes":[
+		{
+			"code": [8, 247, 0, 255],
+			"sendmessage": "button1"
+		},
+		{
+			"code": [8, 247, 1, 254],
+			"sendmessage": "button2"
+		},
+		{
+			"code": [8, 247, 2, 253],
+			"sendmessage": "button3"
+		}
+	]
+}
+

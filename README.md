@@ -18,7 +18,7 @@ Run dmesg to the VID (Vendor ID) and PID (Product ID). Make sure they are correc
 Look for the description "Formosa Industrial Computin Formosa RC102-809 USB Remot".
 
 The RC102-809 have:
-VID 147a and PID x019
+VID 147a and PID e019
 
 Start pyRC102 in debug-mode and listen to the signals from your remote.
 ```bash

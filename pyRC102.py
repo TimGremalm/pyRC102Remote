@@ -1,21 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#USB-stuff needed
-import usb.core
-import usb.util
-
-#Parsing arguments
 import sys
+import signal
 import getopt
 import threading
-
-#Sigint
-import signal
-
-#File handling
+import usb.core
+import usb.util
 import os.path
 import json
+import numpy
 
 #Global modes
 shutdown = False
@@ -96,12 +90,19 @@ def initUSB():
 			print("Kernel driver is not active.")
 
 def threadReceiveLoop():
-	collected = 0
 	while not shutdown :
 		try:
 			data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
-			collected += 1
-			print data
+
+			#Convert array to list
+			data = numpy.array(data).tolist()
+
+			if debugMode:
+				dataHex = []
+				for segment in data:
+					dataHex.append(format(segment, '0>2X'))
+				print("Data received Dec: {} Hex: {}".format(str(data), str(dataHex)))
+			compareSignalToCode(data)
 		except usb.core.USBError as e:
 			if debugMode:
 				print("usb.core.USBError:")
@@ -111,6 +112,13 @@ def threadReceiveLoop():
 				if debugMode:
 					print("Operation timed out, continue.")
 				continue
+
+def compareSignalToCode(signal):
+	for code in configJson["codes"]:
+		#Compare recieved code to the sored codes in the config file
+		if code["code"] == signal:
+			if debugMode:
+				print("Matched against config {}".format(code["sendmessage"]))
 
 def unloadUSB():
 	if debugMode:
@@ -136,7 +144,7 @@ def usage():
 
 def signal_handler(signal, frame):
 	if not silentMode:
-		print('SIGINT detected. Prepareing to shut down.')
+		print(' SIGINT detected. Prepareing to shut down.')
 	global shutdown
 	shutdown = True
 
@@ -185,7 +193,7 @@ def readConfig():
 		print(err)
 		sys.exit(3)
 	if debugMode:
-		print("Config data:")
+		print("Config JSON data:")
 		print(configJson)
 
 	global usbReceiverVid

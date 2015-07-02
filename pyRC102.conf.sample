@@ -16,7 +16,7 @@
 			"sendmessage": "button2"
 		},
 		{
-			"code": [8, 247, 2, 253],
+			"code": [8, "0x247", 2, 253],
 			"sendmessage": "button3"
 		}
 	]

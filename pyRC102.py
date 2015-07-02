@@ -220,6 +220,19 @@ def readConfig():
 		print("Parameter usbreceiver vid is %s." % usbReceiverVid)
 		print("Parameter usbreceiver pid is %s." % usbReceiverPid)
 
+	#Loop through codes
+	for i, code in enumerate(configJson["codes"]):
+		for j, segment in enumerate(code["code"]):
+			#Make sure code segment is an integer
+			if not isinstance( segment, ( int, long ) ):
+				#With the 0x prefix, Python can distinguish hex and decimal automatically
+				configJson["codes"][i]["code"][j] = int(segment, 0)
+
+	if debugMode:
+		print("List of codes from config file.")
+		for code in configJson["codes"]:
+			print(code)
+
 if __name__ == '__main__':
 	#Parse Arguments
 	parseArgs()

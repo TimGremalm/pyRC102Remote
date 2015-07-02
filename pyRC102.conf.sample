@@ -3,6 +3,9 @@
 		"vid":"0x147a",
 		"pid":"0xe019"
 	},
+	"lirc":{
+		"socket":"/var/run/lirc/lircd"
+	},
 	"codes":[
 		{
 			"code": [8, 247, 0, 255],

@@ -6,6 +6,7 @@ Based on http://www.orangecoat.com/how-to/read-and-decode-data-from-your-mouse-u
 Listens to infrared codes from a remotecontrol through a receiver called RC102-809, and converts it's signals, send them over to LIRC (a daemon for remotecontrols). Read more about LIRC at http://www.lirc.org/
 
 The RC102-809 is a generic circuit that many cheap brand rebrand in their own name. For instance my unit is a Trust - NB5100p (http://www.trust.com/en/all-products/14272-multimedia-remote-control-nb5100p).
+Other common names on the same unit is Conceptronic CMMRC, Wirtech Clic & Zap, Hama Remote Control for Windows Media Center, Tevion Computing Slim USB multi remote controller, Formosa IR 507, Formosa 21/ eDio 21.
 
 ## Requirements
 * PyUSB - http://walac.github.io/pyusb/

@@ -9,8 +9,9 @@ The RC102-809 is a generic circuit that many cheap brands rebrand with their own
 Other common names on the same unit is Conceptronic CMMRC, Wirtech Clic & Zap, Hama Remote Control for Windows Media Center, Tevion Computing Slim USB multi remote controller, Formosa IR 507, Formosa 21/ eDio 21.
 
 ## Requirements
-* PyUSB - http://walac.github.io/pyusb/
+* PyUSB - https://walac.github.io/pyusb/
 * libusb - http://www.libusb.org/
+* python-lirc-send - https://github.com/prcjac/python-lirc-send
 
 ## Configuration
 Write your config file based on pyRC102.conf.sample, name it pyRC102.conf.
@@ -26,6 +27,11 @@ You can choose what ever config as you want to, pyRC102Remote will inject the co
 
 Preferable a generic config like the mceusb.
 Configure LIRC to use driver null, and device null.
+
+Add the argument allow simulate to let lircd receive simulated IR-commands.
+```conf
+REMOTE_LIRCD_ARGS="--allow-simulate"
+```
 
 ### Configure the codes
 To get the codes from your remote control, start pyRC102 in debug-mode.

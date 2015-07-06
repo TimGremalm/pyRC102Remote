@@ -10,19 +10,21 @@ import usb.util
 import os.path
 import json
 import numpy
+from lircsend import LircSend
 
 #Global modes
 shutdown = False
 verboseMode = 1
 
 #Global variables
-dev = 0
+dev = None
 interface = 0
-endpoint = 0
+endpoint = None
+lirc = None
 
 #Config variables
 configFile = "pyRC102.conf"
-configJson = 0
+configJson = None
 usbReceiverVid = 5242
 usbReceiverPid = 57369
 
@@ -42,6 +44,7 @@ def main():
 	signal.signal(signal.SIGINT, signal_handler)
 
 	initUSB()
+	initLircSend()
 
 	t = threading.Thread(target=threadReceiveLoop, args=())
 	t.start()
@@ -50,6 +53,7 @@ def main():
 	signal.pause()
 
 	unloadUSB()
+	deinitLircSend()
 
 	if verboseMode > 2:
 		print("Thread is closed, terminating process.")
@@ -66,10 +70,7 @@ def initUSB():
 	if verboseMode > 2:
 		print("Finding USB receiver.")
 	# decimal vendor and product values
-	#dev = usb.core.find(idVendor=1118, idProduct=1917)
 	dev = usb.core.find(idVendor=usbReceiverVid, idProduct=usbReceiverPid)
-	# or, uncomment the next line to search instead by the hexidecimal equivalent
-	#dev = usb.core.find(idVendor=0x147a, idProduct=0xe019)
 
 	# first endpoint
 	interface = 0
@@ -111,13 +112,47 @@ def threadReceiveLoop():
 				if verboseMode > 2:
 					print("Operation timed out, continue.")
 				continue
+def initLircSend():
+	global lirc
+
+	if verboseMode > 1:
+		print("Init LircSend.")
+
+	if verboseMode > 2:
+		print("Try open LircSend on socket {}.".format(configJson["lirc"]["socket"]))
+	try:
+		lirc = LircSend.create_local()
+	except Exception as err:
+		if verboseMode > 0:
+			print("Couldn't open socket.")
+			print(err)
+
+def deinitLircSend():
+	if verboseMode > 1:
+		print("Deinit LircSend.")
+
+	lirc.destroy()
+	if verboseMode > 2:
+		print("LircSend is destroyed.")
 
 def compareSignalToCode(signal):
 	for code in configJson["codes"]:
 		#Compare recieved code to the sored codes in the config file
 		if code["code"] == signal:
 			if verboseMode > 0:
-				print("Matched against config {}".format(code["sendmessage"]))
+				print("Matched against config code: {} comment: {}".format(code["code"], code["comment"]))
+				if lirc._init:
+					if verboseMode > 1:
+						print("Send to lirc")
+					#With the 0x prefix, int convert from both hex- and dec-string
+					ret = lirc.send_simulate(int(code["scancode"], 0), int(code["repeat"], 0), code["keysym"], code["remote"])
+					if verboseMode > 2:
+						print("Commad sent")
+
+					if verboseMode > 1:
+						print("send_simulate returned:")
+						print(ret)
+						print("command: {} success: {} payload: {}".format(ret.command, ret.success, ret.payload))
 
 def unloadUSB():
 	if verboseMode > 1:
@@ -215,25 +250,25 @@ def readConfig():
 	if not isinstance( usbReceiverVid, ( int, long ) ):
 		if verboseMode > 2:
 			print("usbReceiverVid is not an integer, try convert it.")
-		#With the 0x prefix, Python can distinguish hex and decimal automatically
+		#With the 0x prefix, int convert from both hex- and dec-string
 		usbReceiverVid = int(usbReceiverVid, 0)
 
 	if not isinstance( usbReceiverPid, ( int, long ) ):
 		if verboseMode > 2:
 			print("usbReceiverPid is not an integer, try convert it.")
-		#With the 0x prefix, Python can distinguish hex and decimal automatically
+		#With the 0x prefix, int convert from both hex- and dec-string
 		usbReceiverPid = int(usbReceiverPid, 0)
 
 	if verboseMode > 1:
-		print("Parameter usbreceiver vid is %s." % usbReceiverVid)
-		print("Parameter usbreceiver pid is %s." % usbReceiverPid)
+		print("Parameter usbreceiver vid is {} ({}).".format(usbReceiverVid, hex(usbReceiverVid)))
+		print("Parameter usbreceiver pid is {} ({}).".format(usbReceiverPid, hex(usbReceiverPid)))
 
 	#Loop through codes
 	for i, code in enumerate(configJson["codes"]):
 		for j, segment in enumerate(code["code"]):
 			#Make sure code segment is an integer
 			if not isinstance( segment, ( int, long ) ):
-				#With the 0x prefix, Python can distinguish hex and decimal automatically
+				#With the 0x prefix, int convert from both hex- and dec-string
 				configJson["codes"][i]["code"][j] = int(segment, 0)
 
 	if verboseMode > 2:

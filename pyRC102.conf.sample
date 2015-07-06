@@ -9,15 +9,27 @@
 	"codes":[
 		{
 			"code": [8, 247, 0, 255],
-			"sendmessage": "button1"
+			"comment": "button1",
+			"scancode": "0x00007bfe",
+			"repeat": "0",
+			"keysym": "KEY_1",
+			"remote": "mceusb"
 		},
 		{
 			"code": [8, 247, 1, 254],
-			"sendmessage": "button2"
+			"comment": "button2",
+			"scancode": "0x00007bfd",
+			"repeat": "0",
+			"keysym": "KEY_2",
+			"remote": "mceusb"
 		},
 		{
 			"code": [8, 247, 2, 253],
-			"sendmessage": "button3"
+			"comment": "button3",
+			"scancode": "0x00007bfc",
+			"repeat": "0",
+			"keysym": "KEY_3",
+			"remote": "mceusb"
 		}
 	]
 }

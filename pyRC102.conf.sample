@@ -8,7 +8,7 @@
 	},
 	"codes":[
 		{
-			"code": [8, 247, 0, 255],
+			"code": [8, 247, "0x00", "0xFF"],
 			"comment": "button1",
 			"scancode": "0x00007bfe",
 			"repeat": "0",
@@ -16,7 +16,7 @@
 			"remote": "mceusb"
 		},
 		{
-			"code": [8, 247, 1, 254],
+			"code": [8, 247, "0x01", "0xFE"],
 			"comment": "button2",
 			"scancode": "0x00007bfd",
 			"repeat": "0",
@@ -24,11 +24,227 @@
 			"remote": "mceusb"
 		},
 		{
-			"code": [8, 247, 2, 253],
+			"code": [8, 247, "0x02", "0xFD"],
 			"comment": "button3",
 			"scancode": "0x00007bfc",
 			"repeat": "0",
 			"keysym": "KEY_3",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x03", "0xFC"],
+			"comment": "button4",
+			"scancode": "0x00007bfb",
+			"repeat": "0",
+			"keysym": "KEY_4",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x04", "0xFB"],
+			"comment": "button5",
+			"scancode": "0x00007bfa",
+			"repeat": "0",
+			"keysym": "KEY_5",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x05", "0xFA"],
+			"comment": "button6",
+			"scancode": "0x00007bf9",
+			"repeat": "0",
+			"keysym": "KEY_6",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x06", "0xF9"],
+			"comment": "button7",
+			"scancode": "0x00007bf8",
+			"repeat": "0",
+			"keysym": "KEY_7",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x07", "0xF8"],
+			"comment": "button8",
+			"scancode": "0x00007bf7",
+			"repeat": "0",
+			"keysym": "KEY_8",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x08", "0xF7"],
+			"comment": "button9",
+			"scancode": "0x00007bf6",
+			"repeat": "0",
+			"keysym": "KEY_9",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x09", "0xF6"],
+			"comment": "button0",
+			"scancode": "0x00007bff",
+			"repeat": "0",
+			"keysym": "KEY_0",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x0A", "0xF5"],
+			"comment": "buttonUp",
+			"scancode": "0x00007be1",
+			"repeat": "0",
+			"keysym": "KEY_UP",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x0B", "0xF4"],
+			"comment": "buttonDown",
+			"scancode": "0x00007be0",
+			"repeat": "0",
+			"keysym": "KEY_DOWN",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x0C", "0xF3"],
+			"comment": "buttonRight",
+			"scancode": "0x00007bde",
+			"repeat": "0",
+			"keysym": "KEY_RIGHT",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x0D", "0xF2"],
+			"comment": "buttonLeft",
+			"scancode": "0x00007bdf",
+			"repeat": "0",
+			"keysym": "KEY_LEFT",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x0E", "0xF1"],
+			"comment": "buttonOK",
+			"scancode": "0x00007bdd",
+			"repeat": "0",
+			"keysym": "KEY_OK",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x0F", "0xF0"],
+			"comment": "buttonPower",
+			"scancode": "0x00007bf3",
+			"repeat": "0",
+			"keysym": "KEY_POWER",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x10", "0xEF"],
+			"comment": "buttonAudio",
+			"scancode": "0x00007bb8",
+			"repeat": "0",
+			"keysym": "KEY_AUDIO",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x11", "0xEE"],
+			"comment": "buttonStop",
+			"scancode": "0x00007be6",
+			"repeat": "0",
+			"keysym": "KEY_STOP",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x12", "0xED"],
+			"comment": "buttonPause",
+			"scancode": "0x00007be7",
+			"repeat": "0",
+			"keysym": "KEY_PAUSE",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x13", "0xEC"],
+			"comment": "buttonRewind",
+			"scancode": "0x00007bea",
+			"repeat": "0",
+			"keysym": "KEY_REWIND",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x14", "0xEB"],
+			"comment": "bottonChannel+",
+			"scancode": "0x00007bed",
+			"repeat": "0",
+			"keysym": "KEY_CHANNELUP",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x15", "0xEA"],
+			"comment": "buttonMenu",
+			"scancode": "0x00007b7f",
+			"repeat": "0",
+			"keysym": "Media",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x16", "0xE9"],
+			"comment": "buttonForward",
+			"scancode": "0x00007beb",
+			"repeat": "0",
+			"keysym": "KEY_FORWARD",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x17", "0xE8"],
+			"comment": "buttonChannel-",
+			"scancode": "0x00007bec",
+			"repeat": "0",
+			"keysym": "KEY_CHANNELDOWN",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x18", "0xE7"],
+			"comment": "buttonTitle",
+			"scancode": "0x00007ba1",
+			"repeat": "0",
+			"keysym": "KEY_BLUE",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x19", "0xE6"],
+			"comment": "buttonBack",
+			"scancode": "0x00007bdc",
+			"repeat": "0",
+			"keysym": "KEY_BACK",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x1A", "0xE5"],
+			"comment": "buttonSubtitle",
+			"scancode": "0x00007ba5",
+			"repeat": "0",
+			"keysym": "Teletext",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x1D", "0xE2"],
+			"comment": "buttonPlay",
+			"scancode": "0x00007be9",
+			"repeat": "0",
+			"keysym": "KEY_PLAY",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0x1E", "0xE1"],
+			"comment": "buttonChapter",
+			"scancode": "0x00007bd8",
+			"repeat": "0",
+			"keysym": "Aspect",
+			"remote": "mceusb"
+		},
+		{
+			"code": [8, 247, "0xFF", "0x00"],
+			"comment": "buttonGuide",
+			"scancode": "0x00007bd9",
+			"repeat": "0",
+			"keysym": "Guide",
 			"remote": "mceusb"
 		}
 	]

@@ -130,17 +130,17 @@
 		{
 			"code": [8, 247, "0x0F", "0xF0"],
 			"comment": "buttonPower",
-			"scancode": "0x00007bf3",
+			"scancode": "0x00007bf2",
 			"repeat": "0",
-			"keysym": "KEY_POWER",
+			"keysym": "KEY_HOME",
 			"remote": "mceusb"
 		},
 		{
 			"code": [8, 247, "0x10", "0xEF"],
 			"comment": "buttonAudio",
-			"scancode": "0x00007bb8",
+			"scancode": "0x00007ba2",
 			"repeat": "0",
-			"keysym": "KEY_AUDIO",
+			"keysym": "KEY_YELLOW",
 			"remote": "mceusb"
 		},
 		{
@@ -178,9 +178,9 @@
 		{
 			"code": [8, 247, "0x15", "0xEA"],
 			"comment": "buttonMenu",
-			"scancode": "0x00007b7f",
+			"scancode": "0x00007bb9",
 			"repeat": "0",
-			"keysym": "Media",
+			"keysym": "KEY_TV",
 			"remote": "mceusb"
 		},
 		{
@@ -218,9 +218,9 @@
 		{
 			"code": [8, 247, "0x1A", "0xE5"],
 			"comment": "buttonSubtitle",
-			"scancode": "0x00007ba5",
+			"scancode": "0x00007ba4",
 			"repeat": "0",
-			"keysym": "Teletext",
+			"keysym": "KEY_RED",
 			"remote": "mceusb"
 		},
 		{
@@ -234,9 +234,9 @@
 		{
 			"code": [8, 247, "0x1E", "0xE1"],
 			"comment": "buttonChapter",
-			"scancode": "0x00007bd8",
+			"scancode": "0x00007ba3",
 			"repeat": "0",
-			"keysym": "Aspect",
+			"keysym": "KEY_GREEN",
 			"remote": "mceusb"
 		},
 		{

@@ -1,0 +1,3 @@
+[submodule "python-lirc-send"]
+	path = python-lirc-send
+	url = https://github.com/prcjac/python-lirc-send.git

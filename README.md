@@ -26,12 +26,12 @@ VID 147a and PID e019
 You can choose what ever config as you want to, pyRC102Remote will inject the commands into the socket and simulate signals from that remote.
 
 Preferable a generic config like the mceusb.
-Configure LIRC to use driver null, and device null.
 
 Add the argument allow simulate to let lircd receive simulated IR-commands.
 ```conf
 REMOTE_LIRCD_ARGS="--allow-simulate"
 ```
+Example config can be found under lirc_config_sample.
 
 ### Configure the codes
 To get the codes from your remote control, start pyRC102 in debug-mode.

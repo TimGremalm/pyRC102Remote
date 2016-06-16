@@ -35,6 +35,7 @@ Example config can be found under lirc_config_sample.
 
 ### Configure the codes
 To get the codes from your remote control, start pyRC102 in debug-mode.
+Run with root-privileges to enable access to USB.
 ```bash
 sudo ./pyRC102.py --debug
 ```
@@ -50,10 +51,23 @@ For example:
 ```conf
 0000000000001bee 00 VolDown mceusb_hauppauge
 ```
-
-## Run
-run with root-privileges:
+## Test with LIRC
+To test if your entered commands work with LIRC, run:
 ```bash
-sudo ./pyRC102.py
+irw
+```
+
+## Install
+Copy pyRC102 (LSB Init) to your init.d, make sure it's runable.
+```bash
+sudo cp pyRC102 /etc/init.d/
+sudo chmod +x /etc/init.d/pyRC102
+```
+
+Edit the path /change/to/pyRC102installdir in /etc/init.d/pyRC102
+
+Make it start up with the computer
+```bash
+sudo update-rc.d pyRC102 defaults
 ```
 
